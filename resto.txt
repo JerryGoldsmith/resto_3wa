@@ -1,0 +1,12 @@
+réserver une table, un menu, et se faire livrer des menus
+sert aux clients et salariés
+client : gère ses réservations et commandes
+salariés (connection) : pourront suivre les commandes et réservation / paramétrer les commandes et menus
+
+scénarios alternatifs : changement d'avis, pas de mode de paiement,
+
+base de donnée : définir client, table, menu
+
+
+
+models : requetes SQL
