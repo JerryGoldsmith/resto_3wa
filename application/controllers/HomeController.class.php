@@ -1,6 +1,6 @@
 <?php
 
-class HomeController // permet d'afficher la page d'accueil
+class HomeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
