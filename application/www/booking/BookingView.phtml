@@ -1,0 +1,41 @@
+<!--  Tableau affichant les disponibilités de réservation par jour-->
+<table>
+    <thead>
+        <th>Lundi</th>
+        <th>mardi</th>
+        <th>Mercredi</th>
+        <th>Jeudi</th>
+        <th>Vendredi</th>
+        <th>Samedi</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?= $monday ?></td>
+        </tr>
+    </tbody>
+</table>
+<!-- Formulaire de réservation à remplir par le client -->
+<form class="" action="" method="post">
+    <p>
+        <input type="hidden" name="" value="">
+    </p>
+    <p>
+        <label for="customerName">Nom</label>
+        <input type="text" id="customerId" name="customerName" value="">
+    </p>
+    <p>
+        <label for="bookingDate">Date</label>
+        <input type="text" id="bookingDate" name="bookingDate" value="">
+    </p>
+    <p>
+        <label for="bookingHour">Heure</label>
+        <input type="text" id="bookingHour" name="bookingHour" value="">
+    </p>
+    <p>
+        <label for="bookingPlace">Nombre de place</label>
+        <input type="text" id="bookingPlace" name="bookingPlace" value="">
+    </p>
+    <p>
+        <input type="submit" name="btn-submit" value="Réserver">
+    </p>
+</form>
