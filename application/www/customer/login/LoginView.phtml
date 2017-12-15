@@ -1,0 +1,25 @@
+<h2>Espace d'administration</h2>
+
+<form action="<?= $requestUrl ?>/customer/login" method="POST">
+
+	<fieldset>
+		<legend>Login / mot de passe please :</legend>
+		<ul>
+	        <li>
+	            <label for="email">E-mail :</label>
+	            <input id="email" type="text" name="email" data-required data-name="E-mail" value="">
+	        </li>
+	        <li>
+	            <label for="password">Mot de passe :</label>
+	            <input id="password" type="password" name="password" data-required data-name="Mot de passe" data-length="8">
+	        </li>
+		</ul>
+	</fieldset>
+
+	<ul>
+		<li>
+			<input type="submit" value="Et maintenant on valide !">
+			<a href="<?= $requestUrl ?>">Annuler</a>
+		</li>
+	</ul>
+</form>
