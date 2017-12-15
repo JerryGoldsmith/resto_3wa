@@ -1,41 +1,44 @@
-<!--  Tableau affichant les disponibilités de réservation par jour-->
-<table>
-    <thead>
-        <th>Lundi</th>
-        <th>mardi</th>
-        <th>Mercredi</th>
-        <th>Jeudi</th>
-        <th>Vendredi</th>
-        <th>Samedi</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td><?= $monday ?></td>
-        </tr>
-    </tbody>
-</table>
+
 <!-- Formulaire de réservation à remplir par le client -->
-<form class="" action="" method="post">
+<form class="" action="http://localhost/cletusResto/resto_3wa/www/index.php/booking" method="post">
     <p>
         <input type="hidden" name="" value="">
     </p>
     <p>
         <label for="customerName">Nom</label>
-        <input type="text" id="customerId" name="customerName" value="">
+        <input type="text" id="customerName" name="customerName" value="">
+    </p>
+    <p>
+        <label for="customerName">Téléphone</label>
+        <input type="text" id="customerPhone" name="customerPhone" value="">
     </p>
     <p>
         <label for="bookingDate">Date</label>
-        <input type="text" id="bookingDate" name="bookingDate" value="">
+        <input type="date" id="bookingDate" name="bookingDate" value="">
     </p>
     <p>
         <label for="bookingHour">Heure</label>
-        <input type="text" id="bookingHour" name="bookingHour" value="">
+        <select id="bookingHour" class="" name="bookingHour">
+            <<option value="">Heure de réservation</option>
+            <!-- affichage de façon dynamique de la liste des horaires -->
+            <?php foreach ($hoursList as $value) { ?>
+                    <option value="<?= $value['Id'] ?>"><?= $value['Hours'] ?></option>
+            <?php } ?>
+        </select><span id="alertMessage"></span>
     </p>
     <p>
         <label for="bookingPlace">Nombre de place</label>
-        <input type="text" id="bookingPlace" name="bookingPlace" value="">
+        <input type="text" id="bookingPlace" name="placeNumber" value="">
     </p>
+
     <p>
-        <input type="submit" name="btn-submit" value="Réserver">
-    </p>
+        <input type="submit" id="btn-submit" name="btn-submit" value="Réserver">
+        <!-- Message d'alerte lorsque tous les champs du formulaires ne sont pas renseignés -->
+        <span id="errorForm"></span> <span class="flashBag"><?php
+        if ($errorForm->hasMessages()){
+            foreach ($errorForm->fetchMessages() as $value) {
+                echo $value;
+            }
+        }?>
+    </span>
 </form>
