@@ -6,65 +6,32 @@ class BookingController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-        $count = new BookingModel(new Database());
-        /**
-         * Le nombre de réservation pour le lundi
-         * @var Int Le nombre de réservation pour le lundi
-         */
-        $mondayCount = ($count->bookingCountByDay(["lundi"]))["bookingNumberByDay"];
-        /**
-         * Le nombre de réservation pour le mardi
-         * @var Int
-         */
-        $tuesdayCount = ($count->bookingCountByDay(["mardi"]))["bookingNumberByDay"];
-        /**
-         * Le nombre de réservation pour le mercredi
-         * @var Int
-         */
-        $wednesdayCount = ($count->bookingCountByDay(["mercredi"]))["bookingNumberByDay"];
-        /**
-         * Le nombre de réservation pour le jeudi
-         * @var Int
-         */
-        $thursdayCount = ($count->bookingCountByDay(["jeudi"]))["bookingNumberByDay"];
-        /**
-         * Le nombre de réservation pour le vendredi
-         * @var Int
-         */
-        $fridayCount = ($count->bookingCountByDay(["vendredi"]))["bookingNumberByDay"];
-        /**
-         * Le nombre de réservation pour le samedi
-         * @var Int
-         */
-        $saturdayCount = ($count->bookingCountByDay(["samedi"]))["bookingNumberByDay"];
-
-        /**
-         * [return Tableau associatif des jours et de la disponibilité des réservationss]
-         * @var array
-         */
-        return
-        [
-            "monday"=>$count->isAvailable($mondayCount),
-            "tuesday"=>$count->isAvailable($tuesdayCount),
-            "wednesday"=>$count->isAvailable($wednesdayCount),
-            "thursday"=>$count->isAvailable($thursdayCount),
-            "friday"=>$count->isAvailable($fridayCount),
-            "saturday"=>$count->isAvailable($saturdayCount)
+        $inst = new BookingModel(new Database());
+        //on retourne dans la vue la liste déroulante pour les horaires de réservation et le message d'erreur du flashbag défini dans la methode httpPostMethod ci-dessous
+        return [
+            "hoursList" => $inst->displayHourList(),
+            "errorForm" => new FlashBag ()
         ];
-
     }
 
-    /**
-     * httpPostMethod
-     * Enregistrement d'un formulaire de réservation
-     * 
-     * @param  Http   $http       [description]
-     * @param  array  $formFields [description]
-     * @return [type]             [description]
-     */
     public function httpPostMethod(Http $http, array $formFields)
     {
+         $inst = new BookingModel(new Database());
+         //on vérifie que tous les champs du formulaire ne sont pas vide
+        if ($formFields["customerName"]!= "" && $formFields["customerPhone"] != "" && $formFields["bookingDate"] != "" && $formFields["placeNumber"] && $formFields["bookingHour"]) {
+            //si oui on exécute la requête d'enregistrement
+            $inst->addBooking([$formFields["customerName"], $formFields["customerPhone"], $formFields["bookingDate"], $formFields["placeNumber"], $formFields["bookingHour"]]);
+            //puis on redirige vers la page d'accueil
+            $http->redirectTo('/');
 
+        } else {
+            //si au moins un champ du formulaire est vide on crée un objet flashbag
+            $message = new FlashBag ();
+            //on ajoute le message d'erreur
+            $message->add("Tous les champs sont obligatoires");
+            //puis on redirige vers la même page sur laquelle on est pour réafficher le formulaire
+            $http->redirectTo('/booking');
 
+        }
     }
 }
