@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+	<link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
 
     <!-- Librairie jQuery -->
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -35,9 +36,24 @@
 </header>
 
 <!-- Interface utilisateur -->
-<nav class="user-interface">
-    <ul class="link-list">
-        <!-- Code HTML/PHP à écrire -->
+<nav class="">
+    <ul class="">
+        <li><a href="http://localhost/cletusResto/resto_3wa/www">Accueil</a></li>
+		<li class="notreCarte"><a href="#">Notre catre</a>
+			<ul class="nosOffres hideMenu">
+				<li><a href="">Entrées</a></li>
+				<li><a href="">Plats</a></li>
+				<li><a href="">Désserts</a></li>
+				<li><a href="">Boissons</a></li>
+			</ul>
+		</li>
+		<li class="booking"><a href="">Réserver une table</a>
+			<ul class="bookingAction hideMenu">
+				<li><a href="index.php/booking">Faire une réservation</a></li>
+				<li><a href="">Gérer mes réservations</a></li>
+			</ul>
+		</li>
+		<li><a href="index.php/customer">Se connecter</a></li>
     </ul>
 </nav>
 
