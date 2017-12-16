@@ -1,0 +1,53 @@
+ul {
+	padding: 0;
+}
+/*	masquer et positionner les sous menu des ongles notre carte et réserver une table */
+.hideMenu {
+	max-height: 0;
+	width: 300px;
+	transition: max-height 1s;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	background-color: #564e4e;
+}
+
+/*	alignement et padding des li de la nav */
+nav >ul >li {
+	list-style: none;
+	display: inline-block;
+	padding: 10px;
+	margin: 0 10px;
+}
+/*	alignement et padding des sous menus de l'onglet notre carte */
+.nosOffres >li {
+	list-style: none;
+	display: block;
+	padding: 10px;
+}
+/*	alignement et padding des sous menus de l'onglet booking */
+.bookingAction >li {
+	list-style: none;
+	display: block;
+	padding: 10px;
+}
+/* couleur des liens des sous menus*/
+.nosOffres a, .bookingAction a {
+	color: #fff;
+}
+/* positionnement de l'onglet notre carte*/
+.notreCarte {
+	position: relative;
+}
+/* positionnement de l'onglet booking*/
+.booking {
+	position: relative;
+}
+/*affichage des sous menus de l'onglet notre carte au survole*/
+.notreCarte:hover .nosOffres {
+	max-height: 1000px;
+}
+/*affichage des sous menus de l'onglet booking au survole*/
+.booking:hover .bookingAction {
+	max-height: 1000px;
+}
