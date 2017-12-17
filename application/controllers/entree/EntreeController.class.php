@@ -1,6 +1,6 @@
 <?php
 /**
- * [BookingController description]
+ * EntreeController Controller du sous menu entrée
  */
 class EntreeController
 {
