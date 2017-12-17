@@ -9,20 +9,22 @@
 		echo "<p>Aucune entrée n'est dipsonible</p>";
 	} else {
 		foreach ($all as $value): ?>
-			<img id="<?php $value['Id']?>" src="<?= $wwwUrl."/images/meals/".$value['Photo']?>" alt="<?= $value['Photo']?>" >
+			<img id="<?= $value['Id']?>" src="<?= $wwwUrl."/images/meals/".$value['Photo']?>" alt="<?= $value['Photo']?>" >
 			<p><?= $value['Description'] ?></p>
-			<p><?php $value['SalePrice']?></p>
-			<form class="" action="" method="post">
+			<p>Prix: <?= $value['SalePrice']?> EUR</p>
+			<form class="" action="<?= $requestUrl ?>" method="post">
 				<p>
 					<label>Quantité</label>
 					<input type="number" name="orderQuatity" value="1">
 				</p>
-				<input type="hidden" name="mealId" value="<?php $value['Id']?>">
-				<input type="hidden" name=mealName"" value="<?php $value['Name']?>">
-				<input type="hidden" name="mealPhoto" value="<?php $value['Photo']?>">
-				<input type="hidden" name="mealSalePrice" value="<?php $value['SalePrice']?>">
+				<input type="hidden" name="mealId" value="<?= $value['Id']?>">
+
+				<input type="hidden" name="mealName" value="<?= $value['Name']?>">
+				<input type="hidden" name="mealPhoto" value="<?= $value['Photo']?>">
+				<input type="hidden" name="mealSalePrice" value="<?= $value['SalePrice']?>">
 				<input type="submit" name="" value="Ajouter au panier">
 			</form>
+
 	<?php endforeach ?>
 <?php } ?>
 </div>
