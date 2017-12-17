@@ -36,12 +36,12 @@
 </header>
 
 <!-- Interface utilisateur -->
-<nav class="">
+<nav class="user-interface">
     <ul class="">
-        <li><a href="http://localhost/cletusResto/resto_3wa/www">Accueil</a></li>
+        <li><a href="<?= $requestUrl ?>">Accueil</a></li>
 		<li class="notreCarte"><a href="#">Notre catre</a>
 			<ul class="nosOffres hideMenu">
-				<li><a href="">Entrées</a></li>
+				<li><a href="<?= $requestUrl ?>/entree">Entrées</a></li>
 				<li><a href="">Plats</a></li>
 				<li><a href="">Désserts</a></li>
 				<li><a href="">Boissons</a></li>
@@ -49,11 +49,11 @@
 		</li>
 		<li class="booking"><a href="">Réserver une table</a>
 			<ul class="bookingAction hideMenu">
-				<li><a href="index.php/booking">Faire une réservation</a></li>
+				<li><a href="<?= $requestUrl ?>/booking">Faire une réservation</a></li>
 				<li><a href="">Gérer mes réservations</a></li>
 			</ul>
 		</li>
-		<li><a href="index.php/customer">Se connecter</a></li>
+		<li><a href="<?= $requestUrl ?>/customer">Se connecter</a></li>
     </ul>
 </nav>
 
