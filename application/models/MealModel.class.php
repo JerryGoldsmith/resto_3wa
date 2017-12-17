@@ -12,6 +12,13 @@
 			WHERE Type = ?";
 			return $this->database->query($req, $mealType);
 		}
+
+		public function findAllMeal() {
+			$req = "SELECT *
+			FROM mealtable
+			WHERE 1 ";
+			return $this->database->query($req);
+		}
 	}
 
 
