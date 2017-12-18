@@ -1,61 +1,61 @@
-<h2>C'est parti pour le compte client, les amis !</h2>
+<h2>C'est parti pour le compte cpent, les amis !</h2>
 
 <form action="<?= $requestUrl ?>/customer" method="POST">
 
 	<fieldset>
-		<legend> Bon, il nous faudrait votre nom et une adresse, au cas où vous voudriez vous faire livrer !</legend>
+		<legend> Bon, il nous faudrait votre nom et une adresse, au cas où vous voudriez vous faire pvrer !</legend>
 		<ul>
-			<li>
+			<p>
 				<label for="lastName">Nom :</label>
 				<input id="lastName" type="text" name="lastName" data-required data-name="Nom" value="<?= $lastName ?>">
 				<!--input id="lastName" type="text" name="lastName" value="<?= $lastName ?>"-->
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="firstName">Prénom :</label>
 				<input id="firstName" type="text" name="firstName" data-required data-name="Prénom" value="<?= $firstName ?>">
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="address">Adresse :</label>
 				<textarea id="address" name="address" rows="3"><?= $address ?></textarea>
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="city">Ville :</label>
 				<input id="city" type="text" name="city" value="<?= $city ?>">
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="country">Pays :</label>
 				<input id="country" type="text" name="country" value="<?= $country ?>">
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="zipCode">Code Postal :</label>
 				<input id="zipCode" class="zip-code" type="text" maxlength="5" name="zipCode" data-name="Code postal" data-type="number" value="<?= $zipCode ?>">
-			</li>
-			<li>
+			</p>
+			<p>
 				<label for="phone">Téléphone :</label>
 				<input id="phone" class="phone" type="text" maxlength="10" name="phone" data-name="Téléphone" data-type="number" value="<?= $phone ?>">
-			</li>
+			</p>
 		</ul>
 	</fieldset>
 
 	<fieldset>
 		<legend>Mais il nous faudrait aussi quelques informations d'authentification usuelles :</legend>
 		<ul>
-	        <li>
+	        <p>
 	            <label for="email">E-mail :</label>
 	            <input id="email" type="text" name="email" data-required data-name="E-mail" value="<?= $email ?>">
-	        </li>
-	        <li>
+	        </p>
+	        <p>
 	            <label for="password">Mot de passe :</label>
 	            <input id="password" type="password" name="password" data-required data-name="Mot de passe" data-length="8">
-	        </li>
+	        </p>
 		</ul>
 	</fieldset>
 
 	<ul>
-		<li>
+		<p>
 			<input type="submit" value="Créer le compte">
 			<a href="<?= $requestUrl ?>">Annuler</a>
-		</li>
+		</p>
 	</ul>
 </form>
 
@@ -63,7 +63,7 @@
 <!--
 <form method="post" action="">
 
-    <h2>Pour valider votre réservation, compléter ce formulaire :</h2>
+    <h2>Pour vapder votre réservation, compléter ce formulaire :</h2>
 
     <fieldset>
         <legend>Vos coordonnées</legend>
