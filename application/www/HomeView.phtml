@@ -6,10 +6,11 @@
 <!-- Liste des aliments -->
 <div class="">
 	<?php if (count($all) == 0) {
-		echo "<p>Aucune entrée n'est dipsonible</p>";
+		echo "<p>Aucun produit n'est dipsonible</p>";
 	} else {
 		foreach ($all as $value): ?>
 			<img id="<?= $value['Id']?>" src="<?= $wwwUrl."/images/meals/".$value['Photo']?>" alt="<?= $value['Photo']?>" >
+			<p><?= $value['Name'] ?></p>
 			<p><?= $value['Description'] ?></p>
 			<p>Prix: <?= $value['SalePrice']?> EUR</p>
 			<form class="" action="<?= $requestUrl ?>" method="post">
@@ -18,9 +19,9 @@
 					<input type="number" name="orderQuatity" value="1">
 				</p>
 				<input type="hidden" name="mealId" value="<?= $value['Id']?>">
-
-				<input type="hidden" name="mealName" value="<?= $value['Name']?>">
 				<input type="hidden" name="mealPhoto" value="<?= $value['Photo']?>">
+				<input type="hidden" name="mealName" value="<?= $value['Name']?>">
+				
 				<input type="hidden" name="mealSalePrice" value="<?= $value['SalePrice']?>">
 				<input type="submit" name="" value="Ajouter au panier">
 			</form>
