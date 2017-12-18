@@ -1,0 +1,14 @@
+<div class="">
+    <a href="<?= $requestUrl?>/panier/clearpanier">Vider le panier</a>
+    <?php  foreach($monPanier as $value): ?>
+        <p>
+            <img height="63" width="57" src="<?= $wwwUrl."/images/meals/".$value['mealPhoto']?>">
+
+            <a href="<?= $requestUrl ?>/#<?= $value['mealId']?>"><?= $value['mealName']?> </a>
+
+            <span><?= $value['mealSalePrice']?> EUR</span>
+
+        </p>
+    <?php endforeach ?>
+
+</div>
