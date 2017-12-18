@@ -13,16 +13,16 @@ class HomeController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-
+        $session = new UserSession();
     	$panier = new PanierModel(new Database());
-		$test = $panier->addToShoppingCart($formFields);
-		var_dump($test);
-		
+		$panier->addToShoppingCart($formFields);
+
+
 		$allMeal = new MealModel(new Database());
+        $panier->saveShoppingCart();
 
     	return [
 			"all"=>$allMeal->findAllMeal()
 		];
-
     }
 }
