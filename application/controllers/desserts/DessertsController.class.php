@@ -4,7 +4,7 @@
 	    {
 			$dessert = new MealModel(new Database);
 			return [
-				"nosDesserts"=>$dessert->findMealByType(["déssert"])
+				"nosDesserts"=>$dessert->findMealByType(["dessert"])
 				];
 	    }
 
