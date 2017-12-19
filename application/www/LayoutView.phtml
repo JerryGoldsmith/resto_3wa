@@ -32,7 +32,14 @@
             <img src="<?= $wwwUrl ?>/images/logo.gif" height="63" width="57" alt="3WA Restaurant">Restaurant - Made In America !
         </a>
     </h1>
-	
+    <!--bouton panier  -->
+	<a href="<?= $requestUrl ?>/panier">Panier
+        <span>
+            <?php new UserSession();
+            if (count($_SESSION['panier']) > 0) {echo count($_SESSION['panier']);} ?>
+        </span>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </a>
 </header>
 
 <!-- Interface utilisateur -->
