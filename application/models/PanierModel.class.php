@@ -2,7 +2,7 @@
 	class PanierModel extends AbstractModel {
 
 		protected $shoppingCart;
-			protected $count;
+			protected $total;
 
 		public function __construct($db) {
 			parent::__construct($db);
@@ -13,14 +13,12 @@
 
 		}
 
-		public function addToShoppingCart(array $selectedProduct){
-			$this->shoppingCart[] = $selectedProduct ;
+		public function addToShoppingCart(string $id, array $selectedProduct){
+
+			$this->shoppingCart[$id] = $selectedProduct ;
 			 return $this;
 		}
 
-		public function getShoppingCartCount(){
-			return $this->count;
-		}
 
 		public function displayShoppingCart() {
 			return $this->shoppingCart;
@@ -35,7 +33,26 @@
 		public function clearShoppingCart() {
 			$this->shoppingCart = array();
 			$this->saveShoppingCart();
+		}
 
+		public function deleteOneProduct(string $id) {
+			unset($this->shoppingCart[$id]);
+			$this->saveShoppingCart();
+		}
+
+		public function totalAmount() {
+			foreach ($this->shoppingCart as $value) {
+				$this->total += $value['mealSalePrice'];
+			}
+			return $this->total;
+		}
+
+		public function tva() {
+			return $this->total * 0.2 ;
+		}
+
+		public function ttc() {
+			return $this->total += $this->total * 0.2 ;
 		}
 	}
 
