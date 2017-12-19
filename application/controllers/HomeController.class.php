@@ -15,11 +15,11 @@ class HomeController
     {
         $session = new UserSession();
     	$panier = new PanierModel(new Database());
-		$panier->addToShoppingCart($formFields);
-
-
-		$allMeal = new MealModel(new Database());
+        //TODO remplacer le système d'ajout de produits au panier par une requete ajax.
+    	$panier->addToShoppingCart($formFields['mealId'],$formFields);
         $panier->saveShoppingCart();
+		$allMeal = new MealModel(new Database());
+
 
     	return [
 			"all"=>$allMeal->findAllMeal()
