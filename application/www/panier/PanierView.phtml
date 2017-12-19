@@ -1,14 +1,36 @@
 <div class="">
-    <a href="<?= $requestUrl?>/panier/clearpanier">Vider le panier</a>
+    <?php if(count($monPanier) > 0) {
+        echo   "<a href=\"$requestUrl/panier/clearpanier\">Vider le panier</a>";
+      } else {
+        echo "il n'y a aucun produit dans votre panier";
+    }?>
+    <!-- Produit du panier -->
     <?php  foreach($monPanier as $value): ?>
         <p>
             <img height="63" width="57" src="<?= $wwwUrl."/images/meals/".$value['mealPhoto']?>">
 
             <a href="<?= $requestUrl ?>/#<?= $value['mealId']?>"><?= $value['mealName']?> </a>
 
-            <span><?= $value['mealSalePrice']?> EUR</span>
+            <p><?= $value['mealDescription']?></p>
+            <p><?= $value['mealSalePrice']?> EUR</p>
 
+            <form class="" action="<?=$requestUrl?>/panier" method="post">
+                <input type="number" name="orderQuatity" value="<?= $value['orderQuatity']?>">
+                <input type="hidden" name="mealId" value="<?= $value['mealId']?>">
+
+                <input type="submit" value="Supprimer">
+            </form>
         </p>
     <?php endforeach ?>
-
+    <!-- Option de livraison -->
+    <form class="" action="" method="post">
+        <label for="">Livraison<span>possible à partir du 20 EUR</span></label>
+        <input type="checkbox" name="livraison" value="">
+    </form>
+    <!-- Montant de la commande -->
+    <?php if(count($monPanier) > 0) : ?>
+        <p>Total de vos achats: <?= $montantTotal ?> EUR</p>
+        <p>Montant de la TVA: <?= $tva ?></p>
+        <p>Montant TTC: <?= $ttc ?></p>
+    <?php endif ?>
 </div>
