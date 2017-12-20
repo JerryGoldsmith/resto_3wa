@@ -50,7 +50,7 @@
 			$this->saveShoppingCart();
 		}
 
-		public function totalAmount() {
+		public function totalHt() {
 			foreach ($this->shoppingCart as $value) {
 				$this->total += $value['mealSalePrice'];
 			}
