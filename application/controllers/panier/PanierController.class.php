@@ -9,7 +9,7 @@ class PanierController
 
         return [
             "monPanier"=>$panier1->displayShoppingCart(),
-            "montantTotal"=>$panier1->totalAmount(),
+            "montantTotal"=>$panier1->totalHt(),
             "tva"=>$panier1->tva(),
             "ttc"=>$panier1->ttc()
         ];
@@ -18,7 +18,7 @@ class PanierController
     public function httpPostMethod(Http $http, array $formFields)
     {
 
-        
+
         $session = new UserSession();
 
         $panier1 = new PanierModel(new Database());
@@ -26,7 +26,9 @@ class PanierController
 
         return [
             "monPanier"=>$panier1->displayShoppingCart(),
-            "montantTotal"=>$panier1->totalAmount()
+            "montantTotal"=>$panier1->totalHt(),
+            "tva"=>$panier1->tva(),
+            "ttc"=>$panier1->ttc()
         ];
     }
 }
