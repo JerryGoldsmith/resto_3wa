@@ -13,9 +13,19 @@
 
 		}
 
-		public function addToShoppingCart(string $id, array $selectedProduct){
+		public function addToShoppingCart(array $selectedProduct, string $id)
+		{
+			// $mealId = (integer)$selectedProduct[$id];
+			// $mealQuantity = (integer)$selectedProduct[$orderQuantity];
 
-			$this->shoppingCart[$id] = $selectedProduct ;
+			// var_dump($this->shoppingCart[$mealId][$orderQuantity]); die;
+
+			if (array_key_exists($id, $this->shoppingCart)) {
+				$this->shoppingCart[$id]['orderQuantity'] += $selectedProduct['orderQuantity'] ;
+			} else {
+				$this->shoppingCart[$id] = $selectedProduct ;
+			}
+
 			 return $this;
 		}
 
@@ -54,6 +64,8 @@
 		public function ttc() {
 			return $this->total += $this->total * 0.2 ;
 		}
+
+
 	}
 
  ?>

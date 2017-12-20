@@ -18,7 +18,7 @@ class PanierController
     public function httpPostMethod(Http $http, array $formFields)
     {
 
-        //Pour éviter de renvoyer une erreur de type undifined variable monPanier
+        
         $session = new UserSession();
 
         $panier1 = new PanierModel(new Database());
