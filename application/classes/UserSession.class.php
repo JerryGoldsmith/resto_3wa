@@ -3,12 +3,9 @@
 
 class UserSession
 {
-<<<<<<< HEAD
-=======
-	/**
+/**
 	 * [__construct description]
 	 */
->>>>>>> 62bee852d52c78c9d8fb43bbe21d0345f4a76612
 	public function __construct()
 	{
 		if(session_status() == PHP_SESSION_NONE)
@@ -18,8 +15,6 @@ class UserSession
 		}
 	}
 
-<<<<<<< HEAD
-=======
 		/**
 		 * [create description]
 		 * @param  [type] $userId    [description]
@@ -28,7 +23,6 @@ class UserSession
 		 * @param  [type] $email     [description]
 		 * @return [type]            [description]
 		 */
->>>>>>> 62bee852d52c78c9d8fb43bbe21d0345f4a76612
     public function create($userId, $firstName, $lastName, $email)
     {
         // Construction de la session utilisateur.
