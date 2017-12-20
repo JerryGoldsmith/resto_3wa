@@ -1,12 +1,13 @@
-<div class="">
+<div class="blocglobal">
 	<?php if (count($nosEntrees) == 0) {
 		echo "<p>Aucune entrée n'est dipsonible</p>";
 	} else {
 		foreach ($nosEntrees as $value): ?>
+		<div class="produitsBloc">
 			<img id="<?= $value['Id']?>" src="<?= $wwwUrl."/images/meals/".$value['Photo']?>" alt="<?= $value['Photo']?>" >
-			<p><?= $value['Name'] ?></p>
-			<p><?= $value['Description'] ?></p>
-			<p>Prix: <?= $value['SalePrice']?> EUR</p>
+			<p class="titre"><?= $value['Name'] ?></p>
+			<p class="description"><?= $value['Description'] ?></p>
+			<p class="prix">Prix: <?= $value['SalePrice']?> EUR</p>
 			<form class="" action="<?= $requestUrl ?>" method="post">
 				<p>
 					<label>Quantité</label>
@@ -20,7 +21,7 @@
 				<input type="hidden" name="mealSalePrice" value="<?= $value['SalePrice']?>">
 				<input type="submit" name="" value="Ajouter au panier">
 			</form>
-
+		</div>
 	<?php endforeach ?>
 <?php } ?>
 </div>

@@ -1,0 +1,25 @@
+<h2>Création d'un administrateur</h2>
+
+<form action="<?= $requestUrl ?>/admin/user" method="POST">
+
+	<fieldset>
+		<legend>Informations d'authentification</legend>
+		<ul>
+	        <li>
+	            <label for="email">E-mail :</label>
+	            <input id="email" type="text" name="email" data-required data-name="E-mail" value="<?= $email ?>">
+	        </li>
+	        <li>
+	            <label for="password">Mot de passe :</label>
+	            <input id="password" type="password" name="password" data-required data-name="Mot de passe" data-length="8">
+	        </li>
+		</ul>
+	</fieldset>
+
+	<ul>
+		<li>
+			<input type="submit" value="Créer le compte">
+			<a href="<?= $requestUrl ?>">Annuler</a>
+		</li>
+	</ul>
+</form>

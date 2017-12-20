@@ -4,16 +4,17 @@
 
 
 <!-- Liste des aliments -->
-//TODO pensez à remplacer les input de type hidden par une requete pour récupérer les donées recherchéess
-<div class="">
+<!--TODO pensez à remplacer les input de type hidden par une requete pour récupérer les donées recherchées-->
+<div class="blocglobal">
 	<?php if (count($all) == 0) {
 		echo "<p>Aucun produit n'est dipsonible</p>";
 	} else {
 		foreach ($all as $value): ?>
+			<div class="produitsBloc">
 			<img id="<?= $value['Id'] ?>" src="<?= $wwwUrl."/images/meals/".$value['Photo']?>" alt="<?= $value['Photo']?>" >
-			<p><?= $value['Name'] ?></p>
-			<p><?= $value['Description'] ?></p>
-			<p>Prix: <?= $value['SalePrice']?> EUR</p>
+			<p class="titre"><?= $value['Name'] ?></h1>
+			<p class="description"><?= $value['Description'] ?></p>
+			<p class="prix">Prix: <?= $value['SalePrice']?> EUR</p>
 
 			<form class="" action="<?= $requestUrl ?>" method="post">
 				<p>
@@ -27,6 +28,7 @@
 				<input type="hidden" name="mealSalePrice" value="<?= $value['SalePrice']?>">
 				<input type="submit" name="" value="Ajouter au panier">
 			</form>
+			</div>
 
 	<?php endforeach ?>
 <?php } ?>

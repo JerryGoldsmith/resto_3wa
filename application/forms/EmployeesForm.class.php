@@ -1,6 +1,6 @@
 <?php
 
-class CustomerForm extends Form
+class EmployeesForm extends Form
 {
     /**
      * [build description]
@@ -10,11 +10,7 @@ class CustomerForm extends Form
     {
         $this->addFormField('lastName');
         $this->addFormField('firstName');
-        $this->addFormField('address');
-        $this->addFormField('city');
-        $this->addFormField('zipCode');
-        $this->addFormField('country');
-        $this->addFormField('phone');
+        $this->addFormField('NumberEmploye');
         $this->addFormField('email');
     }
 }
