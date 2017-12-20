@@ -53,7 +53,7 @@ class LoginController
 	 		);
 
 	 		// Redirection vers la page d'accueil.
-		 $http->redirectTo('/employees');
+		 $http->redirectTo('/admin');
 		 //return $userSession;
 
 	 } else {

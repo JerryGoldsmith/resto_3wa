@@ -29,6 +29,6 @@ class MealController
             $formFields['salePrice']
         );
 
-        $http->redirectTo('/employees');
+        $http->redirectTo('/admin');
     }
 }

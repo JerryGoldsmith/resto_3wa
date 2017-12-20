@@ -34,7 +34,7 @@ class CustomerController
 			);
 
             // Redirection vers la page d'administration
-            $http->redirectTo('/employees');
+            $http->redirectTo('/admin');
 		}
 		catch(DomainException $exception)
 		{
