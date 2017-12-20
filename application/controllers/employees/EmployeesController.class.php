@@ -39,7 +39,7 @@ class EmployeesController
       ]
 			);
 
-          $http->redirectTo('/employees');
+          $http->redirectTo('/admin');
 		}
 		catch(DomainException $exception)
 		{
