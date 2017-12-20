@@ -1,2 +1,4 @@
-index.php
-/library/*.php
+!index.php
+!library/*.php
+
+.gitconfig

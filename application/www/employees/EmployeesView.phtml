@@ -1,0 +1,105 @@
+<h2>LES PRODUITS</h2>
+<h2>Ajouter un nouveau produit :</h2>
+
+<form action="<?= $requestUrl ?>/admin/meal" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <ul>
+            <li>
+                <label for="name">Nom :</label>
+                <input id="name" type="text" name="name" data-required data-name="Nom">
+            </li>
+            <li>
+                <label class="textarea" for="description">Type de produit :</label>
+                <textarea id="description" name="description" rows="3"></textarea>
+            </li>
+						<!--?php if($name->getUploadedFile()): ?-->
+            <li>
+                <label for="photo">Photo :</label>
+                <input id="photo" name="photo" type="file">
+            </li>
+						<!--?php else: ?-->
+							<li>
+								<p>GROSSE ERREUR !!!</p>
+							</li>
+						<!--?php endif; ?-->
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Gestion des stocks :</legend>
+        <ul>
+            <li>
+                <label for="stockDeDepart">Stock de départ :</label>
+                <input id="stockDeDepart" type="text" maxlength="3" name="initialStock" data-name="Stock initial" data-type="positive-integer" data-required>
+            </li>
+            <li>
+                <label for="priceToBuy">Prix d'achat :</label>
+                <input id="priceToBuy" type="text" maxlength="5" name="buyPrice" data-name="Prix d'achat" data-required>
+                <label for="priceToBuy" >€</label>
+            </li>
+            <li>
+                <label for="priceToSale">Prix de vente :</label>
+                <input id="priceToSale" type="text" maxlength="5" name="salePrice" data-name="Prix de vente" data-required>
+                <label for="priceToSale">€</label>
+            </li>
+        </ul>
+    </fieldset>
+
+    <ul>
+        <li>
+            <input type="submit" value="Ajouter">
+            <a href="<?= $requestUrl ?>">Annuler</a>
+        </li>
+    </ul>
+
+    <fieldset>
+        <legend>Gestion des commandes :</legend>
+        <ul>
+            <li>
+                <label for="stockDeDepart">Stock de départ :</label>
+                <input id="stockDeDepart" type="text" maxlength="3" name="initialStock" data-name="Stock initial" data-type="positive-integer" data-required>
+            </li>
+            <li>
+                <label for="priceToBuy">Prix d'achat :</label>
+                <input id="priceToBuy" type="text" maxlength="5" name="buyPrice" data-name="Prix d'achat" data-required>
+                <label for="priceToBuy" >€</label>
+            </li>
+            <li>
+                <label for="priceToSale">Prix de vente :</label>
+                <input id="priceToSale" type="text" maxlength="5" name="salePrice" data-name="Prix de vente" data-required>
+                <label for="priceToSale">€</label>
+            </li>
+        </ul>
+    </fieldset>
+
+</form>
+
+<h2>LES CLIENTS</h2>
+
+<form action="<?= $requestUrl ?>/admin/meal" method="POST" enctype="multipart/form-data">
+
+  <fieldset>
+      <ul>
+          <!--?php foreach($customers as $customer): ?-->
+          <li>
+              <h3>La liste des clients :</h3>
+              <p><!--?= $customers['LastName']; ?--></p>
+          </li>
+          <!--?php endforeach; ?-->
+          <li>
+              <h3>Les clients français :</h3>
+
+          </li>
+          <li>
+              <h3>Les clients étrangers :</h3>
+
+          </li>
+          <li>
+              <h3>Le panier moyen de tous les clients :</h3>
+
+          </li>
+      </ul>
+  </fieldset>
+
+</form>

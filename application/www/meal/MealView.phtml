@@ -1,0 +1,16 @@
+<!-- Liste des aliments -->
+<table class="generic-table meal-list">
+    <caption>Carte du restaurant</caption>
+    <tbody>
+        <?php foreach($allMeals as $meal): ?>
+            <tr>
+                <td><img src="<?= $wwwUrl ?>/images/meals/<?= $meal['Photo']; ?>" alt="<?= $meal['Name']; ?>"></td>
+                <td>
+                    <strong><?= $meal['Name']; ?></strong>
+                    <p><?= $meal['Description']; ?></p>
+                </td>
+                <td class="number"><strong><?= number_format($meal['SalePrice'], 2) ?></strong> €</td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
