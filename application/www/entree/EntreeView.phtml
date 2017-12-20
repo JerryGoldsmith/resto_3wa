@@ -10,11 +10,12 @@
 			<form class="" action="<?= $requestUrl ?>" method="post">
 				<p>
 					<label>Quantité</label>
-					<input type="number" name="orderQuatity" value="1">
+					<input type="number" name="orderQuantity" value="1">
 				</p>
 				<input type="hidden" name="mealId" value="<?= $value['Id']?>">
 
 				<input type="hidden" name="mealName" value="<?= $value['Name']?>">
+				<input type="hidden" name="mealDescription" value="<?= $value['Description']?>">
 				<input type="hidden" name="mealPhoto" value="<?= $value['Photo']?>">
 				<input type="hidden" name="mealSalePrice" value="<?= $value['SalePrice']?>">
 				<input type="submit" name="" value="Ajouter au panier">

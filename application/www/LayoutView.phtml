@@ -35,8 +35,11 @@
     <!--bouton panier  -->
 	<a href="<?= $requestUrl ?>/panier">Panier
         <span>
-            <?php new UserSession();
-            if (count($_SESSION['panier']) > 0) {echo count($_SESSION['panier']);} ?>
+            <?php
+            new UserSession();
+            if (count($_SESSION['panier']) > 0) {
+                echo (new PanierModel(new database()))->totalCommandes();
+            } ?>
         </span>
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </a>

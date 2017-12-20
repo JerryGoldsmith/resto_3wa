@@ -6,6 +6,7 @@ class PanierController
     {
         $session = new UserSession();
         $panier1 = new PanierModel(new Database());
+        var_dump($panier1); 
 
         return [
             "monPanier"=>$panier1->displayShoppingCart(),

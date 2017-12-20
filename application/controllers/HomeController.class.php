@@ -4,7 +4,8 @@ class HomeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-    	$allMeal = new MealModel(new Database());
+        $session = new UserSession();
+        $allMeal = new MealModel(new Database());
 
     	return [
 			"all"=>$allMeal->findAllMeal()

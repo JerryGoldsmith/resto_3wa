@@ -15,22 +15,26 @@
             <p><?= $value['mealSalePrice']?> EUR</p>
 
             <form class="" action="<?=$requestUrl?>/panier" method="post">
-                <input type="number" name="orderQuatity" value="<?= $value['orderQuatity']?>">
+                <input type="number" name="orderQuantity" value="<?= $value['orderQuantity']?>">
                 <input type="hidden" name="mealId" value="<?= $value['mealId']?>">
 
                 <input type="submit" value="Supprimer">
             </form>
         </p>
     <?php endforeach ?>
-    <!-- Option de livraison -->
-    <form class="" action="" method="post">
-        <label for="">Livraison<span>possible à partir du 20 EUR</span></label>
-        <input type="checkbox" name="livraison" value="">
-    </form>
-    <!-- Montant de la commande -->
+
+
     <?php if(count($monPanier) > 0) : ?>
+        <!-- Option de livraison -->
+        <form class="" action="" method="post">
+            <label for="">Livraison<span>possible à partir du 20 EUR</span></label>
+            <input type="checkbox" name="livraison" value="">
+        </form>
+        <!-- Montant de la commande -->
         <p>Total de vos achats: <?= $montantTotal ?> EUR</p>
         <p>Montant de la TVA: <?= $tva ?></p>
         <p>Montant TTC: <?= $ttc ?></p>
+        <!-- Commander  -->
+        <a href="<?=$requestUrl?>/panier/order">Commander</a>
     <?php endif ?>
 </div>

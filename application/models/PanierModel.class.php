@@ -3,6 +3,7 @@
 
 		protected $shoppingCart;
 			protected $total;
+			protected $quantity;
 
 		public function __construct($db) {
 			parent::__construct($db);
@@ -28,7 +29,12 @@
 
 			 return $this;
 		}
-
+		public function totalCommandes(){
+			foreach ($this->shoppingCart as $value) {
+				$this->quantity += $value['orderQuantity'];
+			}
+			return $this->quantity;
+		}
 
 		public function displayShoppingCart() {
 			return $this->shoppingCart;
@@ -63,6 +69,12 @@
 
 		public function ttc() {
 			return $this->total += $this->total * 0.2 ;
+		}
+
+		public function order(array $parameters)
+		{
+			$req = "INSERT INTO orderTable (orderQuantity, SalePrice, Ht, Tva, Ttc, Status, mealId) VALUES(?, ?, ?, ?, ?, ?)";
+			$this->database->executeSql($req, $parameters);
 		}
 
 
