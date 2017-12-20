@@ -52,7 +52,7 @@
 
 		public function totalHt() {
 			foreach ($this->shoppingCart as $value) {
-				$this->total += $value['mealSalePrice'];
+				$this->total += $value['mealSalePrice'] * $value['orderQuantity'];
 			}
 			return $this->total;
 		}
